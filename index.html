@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Jakkob</title>
+    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'self' 'unsafe-inline';"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+  </head>
+  <body>
+    <div class="navigation">
+      <div class="inliner"></div>
+      <div class="inlined">
+        <!-- Start component -->
+        <div class="progress-meter">
+          <div class="track">
+            <span class="progress"></span>
+          </div>
+          <ol class="progress-points" data-current="1">
+            <li class="progress-point">
+              <span class="label">Gender</span>
+            </li>
+            <li class="progress-point">
+              <span class="label">Allergies</span>
+            </li>
+            <li class="progress-point">
+              <span class="label">Drug</span>
+            </li>
+            <li class="progress-point">
+              <span class="label"> Concentration </span>
+            </li>
+            <li class="progress-point">
+              <span class="label">Review</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!-- End component -->
+
+    <div id="index">
+      <div class="container">
+        <div class="section-header"><h1>Gender</h1></div>
+
+        <div class="main-content gender-container">
+          <div class="gender-box gender-box--male">
+            <a class="gender-select" href="allergies.html">
+              <img
+                data-gender="male"
+                class="gender__image"
+                src="assets/male.svg"
+                alt=""
+              />
+              <div data-gender="male" class="gender__text">Male</div>
+            </a>
+          </div>
+          <div class="gender-box gender-box--female">
+            <a class="gender-select" href="allergies.html">
+              <img data-gender="female" src="assets/female.svg" alt="" />
+              <div data-gender="female" class="gender__text">Female</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="allergies">
+      <div class="container">
+        <div class="section-header"><h1>Select Allergy</h1></div>
+
+        <div class="drug-menu">
+          <div class="drug-menu__list">
+            <ul class="drug-menu__list drug-menu__list--ul allergies__list--ul">
+              <li data-allergy="Peanuts" class="drug-menu__list--li">
+                <img
+                  data-allergy="Peanuts"
+                  class="drug-menu__add-icon"
+                  src="./assets/add.svg"
+                />
+                Peanuts
+              </li>
+              <li data-allergy="Morphine" class="drug-menu__list--li">
+                <img
+                  data-allergy="Morphine"
+                  class="drug-menu__add-icon"
+                  src="./assets/add.svg"
+                />
+                Morphine
+              </li>
+            </ul>
+          </div>
+
+          <div class="drug-button__container">
+            <a class="allergies-button__link" href="drug.html">
+              <button type="submit" [disabled]="!form.form.valid">
+                Save
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="drug">
+      <div class="container">
+        <div class="section-header"><h1>Search for Intravenous Drug</h1></div>
+
+        <div class="drug-menu">
+          <div class="drug-menu__list">
+            <ul
+              class="drug-menu__list drug-menu__list--ul drug-menu__list--ul--color"
+            >
+              <li data-drug="Diazepam">
+                Diazepam
+              </li>
+              <li data-drug="Pentazemin">
+                Pentazemin
+              </li>
+            </ul>
+          </div>
+
+          <div class="drug-button__container">
+            <a href="weightHeight.html">
+              <button
+                class="drug-button__link"
+                type="submit"
+                [disabled]="!form.form.valid"
+              >
+                Save
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="concentration">
+      <div class="container">
+        <div class="section-header section-header__drug">
+          <h1>Weight and Drug Concentrations</h1>
+        </div>
+        <div class="form-field">
+          <label for="weight">Weight</label>
+          <div class="form-field__input">
+            <input type="number" name="weight" />
+            <select name="weightUnit">
+              <option selected value="">kg</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="vial-concentration">Vial Concentration</label>
+          <div class="form-field__input">
+            <input type="number" name="vial-concentration" />
+            <select name="vialUnit" id="">
+              <option selected value="">ml/mcg</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="weight">Prescribed Concentration</label>
+          <div class="form-field__input">
+            <input type="number" name="prescribed-concentration" />
+            <select name="prescribedUnit" id="">
+              <option selected value="">mg</option>
+            </select>
+          </div>
+        </div>
+        <div class="drug-button__container" style="width: 86%;">
+          <a class="weightSave" href="weightHeight.html">
+            <button type="submit" [disabled]="!form.form.valid">
+              Save
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="review">
+      <div class="container">
+        <div class="section-header section-header__drug">
+          <h1>Confirm Information</h1>
+        </div>
+        <div class="form-field">
+          <label for="genderReview">Gender</label>
+          <div class="form-field__input">
+            <input
+              class="reviewInput"
+              type="text"
+              disabled
+              name="genderReview"
+            />
+            <span class="dot"></span>
+            <button data-switchto="index" class="review-button">Change</button>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="allergyReview">Allergies</label>
+          <div class="form-field__input">
+            <input
+              class="reviewInput"
+              type="text"
+              disabled
+              name="allergyReview"
+            />
+            <span class="dot"></span>
+            <button data-switchto="allergies" class="review-button">
+              Change
+            </button>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="drugReview">Intravenous Drug</label>
+          <div class="form-field__input">
+            <input class="reviewInput" type="text" disabled name="drugReview" />
+            <span class="dot"></span>
+            <button data-switchto="drug" class="review-button">Change</button>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="weightReview">Weight</label>
+          <div class="form-field__input">
+            <input
+              class="reviewInput"
+              type="text"
+              disabled
+              name="weightReview"
+            />
+            <span class="dot"></span>
+            <button data-switchto="concentration" class="review-button">
+              Change
+            </button>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="vialReview">Vial Concentration</label>
+          <div class="form-field__input">
+            <input
+              class="reviewInput cap-false"
+              type="text"
+              disabled
+              name="vialReview"
+            />
+            <span class="dot"></span>
+            <button data-switchto="concentration" class="review-button">
+              Change
+            </button>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="prescribedReview">Prescribed Concentration</label>
+          <div class="form-field__input">
+            <input
+              class="reviewInput cap-false"
+              type="text"
+              disabled
+              name="prescribedReview"
+            />
+            <span class="dot"></span>
+            <button data-switchto="concentration" class="review-button">
+              Change
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="completion">
+      <div class="container">
+        <div class="section-header section-header__drug">
+          <h1>Administering Dose</h1>
+        </div>
+        <div class="dosage">Administering</div>
+      </div>
+    </div>
+
+    <script src="progressScript.js"></script>
+    <script>
+      const electron = require("electron");
+      const _ = require("lodash");
+      const { ipcRenderer } = electron;
+      let selectedGender = "";
+      let selectedAllergies = [];
+      let selectedDrug = "";
+      let confirmedCount = 0;
+
+      const genderButtons = [
+        ...document.getElementsByClassName("gender-select"),
+      ];
+      genderButtons.forEach((gender) =>
+        gender.addEventListener("click", clickGender)
+      );
+      function clickGender(e) {
+        e.preventDefault();
+        gender = e.target.dataset.gender;
+        ipcRenderer.send("item:add", gender);
+        selectedGender = gender;
+        document.getElementById;
+        toggle("index", "allergies");
+        document.getElementsByClassName("progress")[0].style.width = "25%";
+        document.getElementsByClassName("progress-point")[0].className +=
+          " completed";
+      }
+
+      const allergiesSaveButton = document.getElementsByClassName(
+        "allergies-button__link"
+      )[0];
+      allergiesSaveButton.addEventListener("click", saveAllergies);
+      function saveAllergies(e) {
+        e.preventDefault();
+        toggle("allergies", "drug");
+        document.getElementsByClassName("progress")[0].style.width = "50%";
+        document.getElementsByClassName("progress-point")[1].className +=
+          " completed";
+      }
+
+      const allergiesListItems = [
+        ...document.getElementsByClassName("allergies__list--ul"),
+      ];
+      allergiesListItems.forEach((allergy) => {
+        allergy.addEventListener("click", selectAllergy);
+        allergy.addEventListener("click", highLight);
+      });
+      function selectAllergy(e) {
+        const selectedAllergy = e.target.dataset.allergy;
+        selectedAllergies = _.xor(selectedAllergies, [selectedAllergy]);
+        console.log(selectedAllergies);
+      }
+      function highLight(e) {
+        console.log(e.target.parentElement.style.color);
+        const selectedElement = e.target;
+        if (selectedElement.tagName === "LI") {
+          if (selectedElement.style.color !== "green") {
+            selectedElement.style.color = "green";
+          } else {
+            selectedElement.style.color = "black";
+          }
+        } else if (selectedElement.parentElement.tagName === "LI") {
+          console.log("test");
+          if (selectedElement.parentElement.style.color !== "green") {
+            selectedElement.parentElement.style.color = "green";
+          } else {
+            selectedElement.parentElement.style.color = "black";
+          }
+        }
+      }
+
+      const selectedDrugItem = [
+        ...document.getElementsByClassName("drug-menu__list--ul--color")[0]
+          .children,
+      ];
+
+      selectedDrugItem.forEach((drug) => {
+        drug.addEventListener("click", addDrug);
+      });
+      function addDrug(e) {
+        const listItems = [
+          ...document.getElementsByClassName("drug-menu__list--ul--color")[0]
+            .children,
+        ];
+        listItems.forEach((item) => (item.style.color = "black"));
+        const selectedElement = e.target;
+        if (selectedElement.tagName === "LI") {
+          if (selectedElement.style.color !== "green") {
+            selectedElement.style.color = "green";
+          } else {
+            selectedElement.style.color = "black";
+          }
+          selectedDrug = selectedElement.dataset.drug;
+        } else if (selectedElement.parentElement.tagName === "LI") {
+          if (selectedElement.parentElement.style.color !== "green") {
+            selectedElement.parentElement.style.color = "green";
+          } else {
+            selectedElement.parentElement.style.color = "black";
+          }
+          selectedDrug = selectedElement.parentElement.dataset.drug;
+        }
+      }
+      const drugSaveButton = document.getElementsByClassName(
+        "drug-button__link"
+      )[0];
+      drugSaveButton.addEventListener("click", saveDrugs);
+
+      function saveDrugs(e) {
+        e.preventDefault();
+        toggle("drug", "concentration");
+        document.getElementsByClassName("progress")[0].style.width = "75%";
+        document.getElementsByClassName("progress-point")[2].className +=
+          " completed";
+      }
+
+      const weightSaveButton = document.getElementsByClassName("weightSave")[0];
+      weightSaveButton.addEventListener("click", saveWeight);
+
+      let weight, weightUnit, vial, vialUnit, prescribed, prescribedUnit;
+      function saveWeight(e) {
+        let tmp;
+        e.preventDefault();
+        weight = document.getElementsByName("weight")[0].value;
+        tmp = document.getElementsByName("weightUnit")[0];
+        weightUnit = tmp.options[tmp.selectedIndex].text;
+
+        vial = document.getElementsByName("vial-concentration")[0].value;
+        tmp = document.getElementsByName("vialUnit")[0];
+        vialUnit = tmp.options[tmp.selectedIndex].text;
+
+        prescribed = document.getElementsByName("prescribed-concentration")[0]
+          .value;
+        tmp = document.getElementsByName("prescribedUnit")[0];
+        prescribedUnit = tmp.options[tmp.selectedIndex].text;
+        fillReviewPage();
+        toggle("concentration", "review");
+        document.getElementsByClassName("progress")[0].style.width = "100%";
+        document.getElementsByClassName("progress-point")[3].className +=
+          " completed";
+      }
+
+      function fillReviewPage() {
+        document.getElementsByName("genderReview")[0].value = selectedGender;
+        let allergiesInputValue = "";
+        if (selectedAllergies.length > 0) {
+          selectedAllergies.forEach((allergy, index) =>
+            index !== selectedAllergies.length - 1
+              ? (allergiesInputValue += allergy + ", ")
+              : (allergiesInputValue += allergy)
+          );
+        }
+        document.getElementsByName(
+          "allergyReview"
+        )[0].value = allergiesInputValue;
+        document.getElementsByName("drugReview")[0].value = selectedDrug;
+        document.getElementsByName("weightReview")[0].value =
+          weight + " " + weightUnit;
+        document.getElementsByName("vialReview")[0].value =
+          vial + " " + vialUnit;
+        document.getElementsByName("prescribedReview")[0].value =
+          prescribed + " " + prescribedUnit;
+      }
+
+      let confirmCircles = [...document.getElementsByClassName("dot")];
+      confirmCircles.forEach((circle) => {
+        circle.addEventListener("click", toggleColor);
+        circle.nextElementSibling.addEventListener("click", changeScreen);
+      });
+
+      function toggleColor(e) {
+        if (e.target.style.backgroundColor === "rgb(0, 194, 66)") {
+          confirmedCount -= 1;
+          e.target.style.backgroundColor = "#B2B2B2";
+          e.target.nextElementSibling.disabled = false;
+        } else {
+          confirmedCount += 1;
+          e.target.style.backgroundColor = "rgb(0, 194, 66)";
+          e.target.nextElementSibling.disabled = true;
+        }
+        if (confirmedCount == 6) {
+          dosage = prescribed * vial;
+          document.getElementsByClassName("dosage")[0].innerText +=
+            " " + dosage + "ml";
+          toggle("review", "completion");
+          document.getElementsByClassName("progress-point")[4].className +=
+            " completed";
+        }
+      }
+
+      function changeScreen(e) {
+        e.preventDefault();
+        console.log(e.target);
+        let nextPage = e.target.dataset.switchto;
+        console.log(nextPage);
+        toggle("review", nextPage);
+      }
+
+      //function to toggle elements on page
+      function toggle(element1, element2) {
+        const elementToHide = document.getElementById(element1);
+        const elementToShow = document.getElementById(element2);
+
+        elementToHide.style.display = "none";
+        elementToShow.style.display = "block";
+      }
+    </script>
+  </body>
+</html>
