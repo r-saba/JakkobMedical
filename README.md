@@ -18,7 +18,8 @@ npm
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+- [Deployed version] (https://drive.google.com/drive/u/0/folders/1IBlPF2HFQeZSdIh48Swzt9I45mMX8Nr1)
+Download your OS version and run the exe.
 
 ## Built With
 
