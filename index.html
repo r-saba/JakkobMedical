@@ -461,7 +461,7 @@
           e.target.nextElementSibling.disabled = true;
         }
         if (confirmedCount == 6) {
-          dosage = prescribed * vial;
+          dosage = (prescribed * vial) / 1000;
           document.getElementsByClassName("dosage")[0].innerText +=
             " " + dosage + "ml";
           toggle("review", "completion");
