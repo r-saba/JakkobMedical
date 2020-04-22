@@ -59,10 +59,6 @@ body {
   box-shadow: 10px;
 }
 
-.drug-menu__list {
-  background-color: #c5c5c5;
-}
-
 .drug-menu__list--ul {
   width: 100%;
   list-style-type: none;
@@ -511,6 +507,10 @@ $tint-incomplete: lighten($tint-complete, 20%);
 }
 
 .section-header__drug {
+  margin: 0;
+}
+
+.section-header__allergies {
   margin: 0;
 }
 
