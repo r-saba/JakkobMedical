@@ -27,14 +27,6 @@ window.$ = window.jQuery = require("jquery");
     }
   }
 
-  $points.on("click", "li", function (event) {
-    var _index;
-    _index = $point_arr.index(this);
-    tracker = _index === 0 ? 1 : _index === val ? 0 : tracker;
-
-    return activate(_index);
-  });
-
   $trigger.on("click", function () {
     return activate(tracker++ % 2 === 0 ? 0 : val);
   });
