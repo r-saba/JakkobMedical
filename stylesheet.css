@@ -1,7 +1,13 @@
 body {
-  font-family: "Roboto", sans-serif;
+  /* font-family: "Roboto", sans-serif; */
+  font-family: "Open Sans", sans-serif;
   font-size: 24px;
 }
+
+h1 {
+  font-weight: 600;
+}
+
 .container {
   max-width: 800px;
   margin: auto;
@@ -70,6 +76,7 @@ body {
   align-items: center;
   padding: 10px 0;
   border-bottom: 1px solid black;
+  cursor: pointer;
 }
 
 .drug-menu__list--ul li:focus {
@@ -417,7 +424,6 @@ $tint-incomplete: lighten($tint-complete, 20%);
   width: 100px;
   margin-left: -50px;
   text-align: center;
-  cursor: pointer;
   color: #999;
 }
 .progress-meter .progress-point.completed,
@@ -567,4 +573,14 @@ $tint-incomplete: lighten($tint-complete, 20%);
 a.gender-select {
   text-decoration: none;
   color: black;
+}
+
+a.gender-select img {
+  max-width: 250px;
+}
+
+.gender__image {
+  height: 250px;
+  padding-right: 20px;
+  padding-left: 20px;
 }

@@ -12,6 +12,11 @@
       href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" type="text/css" href="stylesheet.css" />
   </head>
   <body>
@@ -54,7 +59,7 @@
             <a class="gender-select" href="allergies.html">
               <img
                 data-gender="male"
-                class="gender__image"
+                class="gender__image male"
                 src="assets/male.svg"
                 alt=""
               />
@@ -112,7 +117,9 @@
 
     <div id="drug">
       <div class="container">
-        <div class="section-header"><h1>Search for Intravenous Drug</h1></div>
+        <div class="section-header section-header__allergies">
+          <h1>Search for Intravenous Drug</h1>
+        </div>
 
         <div class="drug-menu">
           <div class="drug-menu__list">
@@ -120,9 +127,21 @@
               class="drug-menu__list drug-menu__list--ul drug-menu__list--ul--color"
             >
               <li data-drug="Diazepam">
+                <img
+                  style="display: none;"
+                  data-allergy="Morphine"
+                  class="drug-menu__add-icon"
+                  src="./assets/select.svg"
+                />
                 Diazepam
               </li>
               <li data-drug="Pentazemin">
+                <img
+                  style="display: none;"
+                  data-allergy="Morphine"
+                  class="drug-menu__add-icon"
+                  src="./assets/select.svg"
+                />
                 Pentazemin
               </li>
             </ul>
@@ -339,18 +358,19 @@
         console.log(e.target.parentElement.style.color);
         const selectedElement = e.target;
         if (selectedElement.tagName === "LI") {
-          if (selectedElement.style.color !== "green") {
-            selectedElement.style.color = "green";
+          //document.getElementsByClassName("drug-menu__list--li")[0].children[0].src="./assets/select.svg"
+          if (
+            e.target.children[0].getAttribute("src") !== "./assets/select.svg"
+          ) {
+            e.target.children[0].src = "./assets/select.svg";
           } else {
-            selectedElement.style.color = "black";
-            selectedElement.style.backgroundColor = "white";
+            e.target.children[0].src = "./assets/add.svg";
           }
         } else if (selectedElement.parentElement.tagName === "LI") {
-          console.log("test");
-          if (selectedElement.parentElement.style.color !== "green") {
-            selectedElement.parentElement.style.color = "green";
+          if (e.target.getAttribute("src") !== "./assets/select.svg") {
+            e.target.src = "./assets/select.svg";
           } else {
-            selectedElement.parentElement.style.color = "black";
+            e.target.src = "./assets/add.svg";
           }
         }
       }
@@ -368,20 +388,16 @@
           ...document.getElementsByClassName("drug-menu__list--ul--color")[0]
             .children,
         ];
-        listItems.forEach((item) => (item.style.color = "black"));
+        listItems.forEach((item) => (item.children[0].style.display = "none"));
         const selectedElement = e.target;
         if (selectedElement.tagName === "LI") {
-          if (selectedElement.style.color !== "green") {
-            selectedElement.style.color = "green";
-          } else {
-            selectedElement.style.color = "black";
+          if (selectedElement.style.display !== "none") {
+            e.target.children[0].style.display = "block";
           }
           selectedDrug = selectedElement.dataset.drug;
         } else if (selectedElement.parentElement.tagName === "LI") {
-          if (selectedElement.parentElement.style.color !== "green") {
-            selectedElement.parentElement.style.color = "green";
-          } else {
-            selectedElement.parentElement.style.color = "black";
+          if (selectedElement.parentElement.style.display !== "none") {
+            selectedElement.parentElement.style.display = "block";
           }
           selectedDrug = selectedElement.parentElement.dataset.drug;
         }
