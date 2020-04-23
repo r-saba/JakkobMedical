@@ -311,6 +311,8 @@
       let selectedAllergies = [];
       let selectedDrug = "";
       let confirmedCount = 0;
+      let startTime;
+      let endTime;
 
       const genderButtons = [
         ...document.getElementsByClassName("gender-select"),
@@ -319,6 +321,7 @@
         gender.addEventListener("click", clickGender)
       );
       function clickGender(e) {
+        startTime = new Date();
         e.preventDefault();
         gender = e.target.dataset.gender;
         ipcRenderer.send("item:add", gender);
@@ -480,12 +483,23 @@
           e.target.nextElementSibling.disabled = true;
         }
         if (confirmedCount == 6) {
+          endTime = new Date();
+          let totalTime = Math.round(
+            (endTime.getTime() - startTime.getTime()) / 1000
+          );
           dosage = (prescribed * vial) / 1000;
           document.getElementsByClassName("dosage")[0].innerText +=
-            " " + dosage + "ml";
+            " " +
+            dosage +
+            "ml. It took " +
+            totalTime +
+            " seconds to compelete all the steps";
           toggle("review", "completion");
           document.getElementsByClassName("progress-point")[4].className +=
             " completed";
+          document.getElementsByClassName("progress")[0].style.backgroundColor =
+            "#00c242";
+          ("#00c242");
         }
       }
 
