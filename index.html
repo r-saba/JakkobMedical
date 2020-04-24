@@ -190,7 +190,7 @@
           <div class="form-field__input">
             <input type="number" name="prescribed-concentration" />
             <select name="prescribedUnit" id="">
-              <option selected value="">mg</option>
+              <option selected value="">mg/kg</option>
             </select>
           </div>
         </div>
@@ -487,13 +487,13 @@
           let totalTime = Math.round(
             (endTime.getTime() - startTime.getTime()) / 1000
           );
-          dosage = (prescribed * vial) / 1000;
+          dosage = weight * ((prescribed * 1) / vial);
           document.getElementsByClassName("dosage")[0].innerText +=
             " " +
             dosage +
             "ml. It took " +
             totalTime +
-            " seconds to compelete all the steps";
+            " seconds to complete all the steps";
           toggle("review", "completion");
           document.getElementsByClassName("progress-point")[4].className +=
             " completed";
