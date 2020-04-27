@@ -2,6 +2,8 @@
 
 This is a IV Bolus dosage calculator for emergency situations intended to be used by nurses.
 
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/EIXw1BB6dso/0.jpg)](https://www.youtube.com/watch?v=EIXw1BB6dso)
+
 ## Getting Started
 
 Clone the repository and move into the folder.
